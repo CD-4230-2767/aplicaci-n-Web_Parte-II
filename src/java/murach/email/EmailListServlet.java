@@ -30,7 +30,31 @@ public class EmailListServlet extends HttpServlet {
         if (action.equals("join")) {
             url = "/index.html";
 
-        } else if (action.equals("listado")) {
+        }else if(action.equals("eliminar")){
+            
+            String email = request.getParameter("email");
+            
+            request.setAttribute("email", email);
+            
+            url = "/confirmar-eliminacion.jsp";
+        } else if(action.equals("aceptar-eliminacion")){
+            String email = request.getParameter("email");
+            
+            int result = UserDB.delete(email);
+            
+            if(result > 0){
+                List<User> users = UserDB.getAllUsers();
+                
+                request.setAttribute("users", users);
+                
+               url = "/listado-de-usuarios.jsp";
+            }else{
+                request.setAttribute("mensaje","Hubo un problema al querer eliminar el usuario de la base de datos");
+                request.setAttribute("error",murach.data.Error.descripcion);
+                url = "/error.jsp" ; 
+            }
+            
+        }else if (action.equals("listado")) {
             List<User> users = UserDB.getAllUsers();
 
             request.setAttribute("users", users);

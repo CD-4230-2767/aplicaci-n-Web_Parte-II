@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 
 public class PruebaConexion {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/murach?useSSL=false&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:8090/murach?useSSL=false&serverTimezone=UTC";
         String user = "murach";
         String password = "campusjalpa";
 

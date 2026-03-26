@@ -8,7 +8,7 @@ package murach.data;
 import java.sql.*;
 /**
  *
- * @author alopezorozco
+ * @author user
  */
 public class DBUtil {
     public static void closeStatement(Statement s) {

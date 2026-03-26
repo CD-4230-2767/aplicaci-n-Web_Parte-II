@@ -1,7 +1,7 @@
 <%-- 
     Document   : listado-de-usuarios
     Created on : 8 nov. 2023, 9:09:48
-    Author     : alopezorozco
+    Author     : Carlos Daniel Huerta Silva
 --%>
 
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
@@ -21,8 +21,14 @@
     <body>
         <div class="container mt-5">
             <div class="row">
-                <div class="col">
+                <div class="col-lg-6">
                     <h1>Elementos de la lista</h1>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <a href="emailList?action=join" class="btn btn-info" role="button">Nuevo Usuario</a></td>
+                </div>
+                <div class="col">
+                    
                     <hr>
                     <table class="table table-striped">
                         <thead>

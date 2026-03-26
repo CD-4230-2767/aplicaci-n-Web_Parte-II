@@ -136,4 +136,26 @@ public class UserDB {
             pool.freeConnection(connection);
         }
     }
+    
+    public static int delete(String email){
+       ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        
+        String query = "DELETE FROM user "
+                    + "WHERE Email= ?";
+        try{
+            ps=connection.prepareStatement(query);
+            ps.setString(1, email);
+            return ps.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+            Error.descripcion = e.getMessage();
+            return 0;
+    }finally{
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+        
+    }
 }
